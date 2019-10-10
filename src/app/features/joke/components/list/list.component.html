@@ -1,0 +1,11 @@
+<h2>MY FAVORITES</h2>
+<mat-divider></mat-divider>
+<mat-list>
+    <mat-list-item *ngFor="let joke of jokes" (click)="onClicked(joke)"><img [src]="joke.icon" class="avatar">
+        <mat-chip-list class="mx">
+            <mat-chip *ngFor="let category of joke.categories">{{category}}</mat-chip>
+        </mat-chip-list>
+        <p>{{joke.text}}</p>
+    </mat-list-item>
+</mat-list>
+<mat-divider></mat-divider>

@@ -1,0 +1,11 @@
+<app-toolbar>
+    <app-navigation></app-navigation>
+</app-toolbar>
+<div class="container" *ngIf="joke$ | async as joke">
+    <app-joke [joke]="joke" (refresh)="refresh()" (favorite)="addToFavorites($event)">
+        <mat-card-actions>
+            <button mat-button (click)="refresh()">{{'Get a new one' | uppercase }}</button>
+            <button mat-button (click)="addToFavorites(joke)">{{'Add to favorites' | uppercase }}</button>
+        </mat-card-actions>
+    </app-joke>
+</div>

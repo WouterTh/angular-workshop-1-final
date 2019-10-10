@@ -1,0 +1,4 @@
+<app-toolbar><app-navigation></app-navigation></app-toolbar>
+<div *ngIf="(store$ | async).jokes as jokes" class="container">
+    <app-list [jokes]="jokes" (clicked)="jokeClicked($event)"></app-list>
+</div>
