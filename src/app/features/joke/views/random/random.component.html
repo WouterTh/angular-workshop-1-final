@@ -1,7 +1,7 @@
 <app-toolbar>
     <app-navigation></app-navigation>
 </app-toolbar>
-<div class="container" *ngIf="joke$ | async as joke">
+<div class="container" *ngIf="joke$ | async as joke; else loading">
     <app-joke [joke]="joke" (refresh)="refresh()" (favorite)="addToFavorites($event)">
         <mat-card-actions>
             <button mat-button (click)="refresh()">{{'Get a new one' | uppercase }}</button>
@@ -9,3 +9,6 @@
         </mat-card-actions>
     </app-joke>
 </div>
+<ng-template #loading>
+    Loading...
+</ng-template>
